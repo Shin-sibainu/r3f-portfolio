@@ -45,22 +45,18 @@ function App() {
         >
           <Float rotationIntensity={1.6}>
             <rectAreaLight
-              width={2.5}
+              width={2.0}
               height={1.65}
               intensity={65}
               color={"#263c95"}
               rotation={[0.1, Math.PI, 0]}
               position={[0, 0.55, -1.15]}
             />
-            {/* <primitive
-              object={model.scene}
-              position={[-4.5, -0.7, -3]}
-            ></primitive> */}
 
             <primitive
               object={computer.scene}
               position-y={-1.1}
-              position-x={-2.2}
+              position-x={-1.5}
               position={[-1, -1.3, 0.2]}
             >
               <Html
@@ -76,8 +72,8 @@ function App() {
           </Float>
           <Text
             // font="./bangers-v20-latin-regular.woff"
-            fontSize={0.8}
-            position={[1, 0.725, 0.75]}
+            fontSize={0.59}
+            position={[1.5, 0.725, 0.75]}
             rotation-y={-0.6}
             // maxWidth={3}
             textAlign="center"
@@ -86,15 +82,15 @@ function App() {
           </Text>
           <Text
             fontSize={0.22}
-            position={[1, 0, 0.75]}
+            position={[1.5, 0.3, 0.75]}
             rotation-y={-0.6}
             // maxWidth={3}
             textAlign="center"
           >
-            Here.
+            The new generatios.
           </Text>
         </PresentationControls>
-        <ContactShadows position-y={-2.2} opacity={0.4} scale={5} blur={2.4} />
+        <ContactShadows position-y={-2.0} opacity={0.7} scale={7} blur={2.4} />
       </Canvas>
       {/* <div
         style={{
