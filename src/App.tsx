@@ -15,13 +15,18 @@ import {
 // https://market.pmnd.rs/model/iphone-x
 
 function App() {
-  // const model = useGLTF(
-  //   "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/iphone-x/model.gltf"
-  // );
-
   const computer = useGLTF(
     "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
   );
+
+  // const model1 = useGLTF(
+  //   "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/bookcase-wide-broken/model.gltf"
+  // );
+
+  const react = useGLTF("./public/react.gltf");
+  const coffee = useGLTF("./public/coffee.gltf");
+  const coffee2 = useGLTF("./public/coffee2.gltf");
+  const donut = useGLTF("./public/donut.gltf");
 
   return (
     <div>
@@ -43,7 +48,7 @@ function App() {
           config={{ mass: 2, tension: 400 }}
           snap={{ mass: 4, tension: 300 }}
         >
-          <Float rotationIntensity={1.6}>
+          <Float rotationIntensity={1.5}>
             <rectAreaLight
               width={2.0}
               height={1.65}
@@ -55,8 +60,8 @@ function App() {
 
             <primitive
               object={computer.scene}
-              position-y={-1.1}
-              position-x={-1.5}
+              position-y={-1.5}
+              position-x={0}
               position={[-1, -1.3, 0.2]}
             >
               <Html
@@ -70,44 +75,56 @@ function App() {
               </Html>
             </primitive>
           </Float>
+          <Float rotationIntensity={1.5}>
+            <rectAreaLight
+              width={2.0}
+              height={1.65}
+              intensity={65}
+              color={"#263c95"}
+              rotation={[0.1, Math.PI, 0]}
+              position={[0, 0.55, -1.15]}
+            />
+
+            <primitive
+              object={coffee2.scene}
+              position-y={-0.7}
+              position-x={-2.4}
+              rotation-x={0.4}
+              position={[-1, -1.3, 0.2]}
+              scale={[2, 2, 2]}
+            ></primitive>
+          </Float>
+          <Float rotationIntensity={1.5}>
+            <rectAreaLight
+              width={2.0}
+              height={1.65}
+              intensity={65}
+              color={"#263c95"}
+              rotation={[0.1, Math.PI, 0]}
+              position={[0, 0.55, -1.15]}
+            />
+
+            <primitive
+              object={donut.scene}
+              position-y={-0.7}
+              position-x={2.4}
+              rotation-x={0.4}
+              position={[-1, -1.3, 0.2]}
+              scale={[3, 3, 3]}
+            ></primitive>
+          </Float>
           <Text
-            // font="./bangers-v20-latin-regular.woff"
+            font="/RobotoSlab-Bold.ttf"
             fontSize={0.59}
-            position={[1.5, 0.725, 0.75]}
-            rotation-y={-0.6}
+            position={[0, 1.725, 0.75]}
             // maxWidth={3}
             textAlign="center"
           >
-            MacBook
-          </Text>
-          <Text
-            fontSize={0.22}
-            position={[1.5, 0.3, 0.75]}
-            rotation-y={-0.6}
-            // maxWidth={3}
-            textAlign="center"
-          >
-            The new generatios.
+            React-Three-Fiber
           </Text>
         </PresentationControls>
         <ContactShadows position-y={-2.0} opacity={0.7} scale={7} blur={2.4} />
       </Canvas>
-      {/* <div
-        style={{
-          position: "absolute",
-          top: "35%",
-          right: "20%",
-          color: "#fff",
-          textShadow: "0 0 10px rgba(0,0,0,0.5)",
-        }}
-      >
-        洗練されたデバイス
-        <p>
-          さらに洗練されたモデルが新発売。
-          <br />
-          軽量化とシンプルなデザインでユーザーから指示を得るデバイス。
-        </p>
-      </div> */}
     </div>
   );
 }
