@@ -23,10 +23,10 @@ function App() {
   //   "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/bookcase-wide-broken/model.gltf"
   // );
 
-  const react = useGLTF("./public/react.gltf");
-  const coffee = useGLTF("./public/coffee.gltf");
-  const coffee2 = useGLTF("./public/coffee2.gltf");
-  const donut = useGLTF("./public/donut.gltf");
+  const react = useGLTF("./react.gltf");
+  const coffee = useGLTF("./coffee.gltf");
+  const coffee2 = useGLTF("./coffee2.gltf");
+  const donut = useGLTF("./donut.gltf");
 
   return (
     <div>
@@ -38,8 +38,10 @@ function App() {
           position: [0, 1.5, 6],
         }}
       >
-        <Environment preset="sunset" />
-        <color args={["#185090"]} attach="background" />
+        {/* <Environment preset="sunset" /> */}
+        <directionalLight position={[2.5, 8, 5]} intensity={1.7} />
+        <color args={["#155196"]} attach="background" />
+
         <PresentationControls
           global
           polar={[-0.4, 0.2]}
@@ -52,10 +54,10 @@ function App() {
             <rectAreaLight
               width={2.0}
               height={1.65}
-              intensity={65}
-              color={"#263c95"}
+              intensity={75}
+              color={"#0021a7"}
               rotation={[0.1, Math.PI, 0]}
-              position={[0, 0.55, -1.15]}
+              position={[0, 0, -1]}
             />
 
             <primitive
@@ -76,15 +78,6 @@ function App() {
             </primitive>
           </Float>
           <Float rotationIntensity={1.5}>
-            <rectAreaLight
-              width={2.0}
-              height={1.65}
-              intensity={65}
-              color={"#263c95"}
-              rotation={[0.1, Math.PI, 0]}
-              position={[0, 0.55, -1.15]}
-            />
-
             <primitive
               object={coffee2.scene}
               position-y={-0.7}
@@ -95,15 +88,6 @@ function App() {
             ></primitive>
           </Float>
           <Float rotationIntensity={1.5}>
-            <rectAreaLight
-              width={2.0}
-              height={1.65}
-              intensity={65}
-              color={"#263c95"}
-              rotation={[0.1, Math.PI, 0]}
-              position={[0, 0.55, -1.15]}
-            />
-
             <primitive
               object={donut.scene}
               position-y={-0.7}
@@ -123,6 +107,7 @@ function App() {
             React-Three-Fiber
           </Text>
         </PresentationControls>
+
         <ContactShadows position-y={-2.0} opacity={0.7} scale={7} blur={2.4} />
       </Canvas>
     </div>
